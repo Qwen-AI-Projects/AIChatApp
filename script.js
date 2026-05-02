@@ -8,7 +8,7 @@
 // ============================================
 
 const CONFIG = {
-    OPENROUTER_API_KEY: 'YOUR_API_KEY', // Replace with your actual API key
+    OPENROUTER_API_KEY: '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', // Replace with your actual API key
     MODEL: 'google/gemma-4-26b-a4b-it:free',
     API_URL: 'https://openrouter.ai/api/v1/chat/completions',
     APP_NAME: 'BlackChat AI',
