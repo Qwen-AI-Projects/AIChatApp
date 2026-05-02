@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackChat AI - Premium AI Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Top Navbar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <span class="logo-icon">◆</span>
+                    <span class="logo-text">BlackChat AI</span>
+                </div>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="model-selector">
+                    <select id="modelSelect">
+                        <option value="google/gemma-4-26b-a4b-it:free">Gemma 4 (Free)</option>
+                        <option value="google/gemma-3-27b-it:free">Gemma 3 (Free)</option>
+                        <option value="meta-llama/llama-3-8b-instruct:free">Llama 3 (Free)</option>
+                        <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (Free)</option>
+                        <option value="qwen/qwen-2.5-coder-32b-instruct:free">Qwen Coder (Free)</option>
+                    </select>
+                </div>
+                <button class="btn-new-chat" id="newChatBtn" title="New Chat">
+                    <span class="btn-icon">+</span>
+                    <span class="btn-text">New Chat</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <div class="messages-container" id="messagesContainer">
+                <!-- Welcome Message -->
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <div class="message-header">
+                            <span class="avatar">AI</span>
+                            <span class="timestamp"></span>
+                        </div>
+                        <div class="message-body markdown-body">
+                            <p>Welcome to <strong>BlackChat AI</strong> 🖤</p>
+                            <p>I'm your advanced AI assistant. How can I help you today?</p>
+                            <ul>
+                                <li>Ask questions about any topic</li>
+                                <li>Get help with coding</li>
+                                <li>Write creative content</li>
+                                <li>Analyze data and documents</li>
+                            </ul>
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn copy-btn" title="Copy message">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">AI is thinking...</span>
+            </div>
+        </main>
+
+        <!-- Bottom Input Bar -->
+        <footer class="input-footer">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Type your message..." 
+                        rows="1"
+                        maxlength="4000"
+                    ></textarea>
+                    <div class="input-actions">
+                        <span class="char-counter" id="charCounter">0 / 4000</span>
+                        <button class="send-btn" id="sendBtn" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <span class="info-text">Press Enter to send, Shift+Enter for new line</span>
+                    <button class="clear-btn" id="clearChatBtn" title="Clear chat history">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                        Clear Chat
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
